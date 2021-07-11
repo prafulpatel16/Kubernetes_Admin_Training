@@ -19,8 +19,12 @@ in all the nodes run the following command
 Install Docker Engine (run all the nodes)
 ---------------------
 
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
 apt-get update && apt-get install -y apt-transport-https curl
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+
+
 
 cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
@@ -93,3 +97,15 @@ kubectl get nodes (this command output must show all nodes are ready status)
 **********************************************************************************************
 
 watch -n 1 kubectl get nodes
+
+
+
+
+
+-----------------
+
+my join string
+
+kubeadm join 10.128.0.2:6443 --token w3q4jf.etzrahk86lercic7 \
+        --discovery-token-ca-cert-hash sha256:b33c7be17bac2cb27ac44b3ec7c4bac3f5b235b19fce
+94f6c82e11ccbb5b7647 
